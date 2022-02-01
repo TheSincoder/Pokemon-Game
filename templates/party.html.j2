@@ -17,38 +17,33 @@
     </form>
 
     {% if pokemon_party %}
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">pokemon_party</th>
-            <th scope="col">Health</th>
-            <th scope="col">Defense</th>
-            <th scope="col">Attack</th>
-            <th scope="col">Ability 1</th>
-            <th scope="col">Ability 2</th>        
-            <th scope="col">Shiny Picture</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    
-
 
     {% for poke in pokemon_party%}
-        <tr>
-      <th scope="row">{{poke.name}}</th>
-      <td>{{poke.hp}}</td>
-      <td>{{poke.defense}}</td>
-      <td>{{poke.attack}}</td>
-      <td>{{poke.ability_1}}</td>
-      <td>{{poke.ability_2}}</td>
-      <td>{{poke.sprite}}</td>
+<div class="card" style="width: 18rem;">
+  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
+  <div class="card-body">
+    <h5 class="card-title">{{poke.name}}</h5>
+    <p class="card-text">
+         <ul>
+      
+      <li>HP: {{poke.hp}}</li>
+      <li>Defense: {{poke.defense}}</li>
+      <li>Attack: {{poke.attack}}</li>
+      <li>Ability 1: {{poke.ability_1}}</li>
+      <li>Ability 2: {{poke.ability_2}}</li>
       
       
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+      
+    </ul>
+
+    </p>
+    
+  </div>
+  
+</div>
+{% endfor %}
+
+
 {% endif %}
 {% endblock %}
 
