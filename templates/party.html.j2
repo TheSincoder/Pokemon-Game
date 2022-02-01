@@ -1,0 +1,55 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Ergast Racing Results
+{% endblock %}
+
+{% block content %}
+    <h1>Pokemon</h1>
+    <form action="{{url_for('party')}}" method="POST">
+  <div class="mb-3">
+    <label for="pokemon" class="form-label">Enter Pokemon for party</label>
+    <input type="text" name="pokemon" class="form-control" id="pokemon">
+  </div>
+
+  <span style="color:red;"><small>{{ error }}</small></span>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if pokemon_party %}
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">pokemon_party</th>
+            <th scope="col">Health</th>
+            <th scope="col">Defense</th>
+            <th scope="col">Attack</th>
+            <th scope="col">Ability 1</th>
+            <th scope="col">Ability 2</th>        
+            <th scope="col">Shiny Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+
+
+    {% for poke in pokemon_party%}
+        <tr>
+      <th scope="row">{{poke.name}}</th>
+      <td>{{poke.hp}}</td>
+      <td>{{poke.defense}}</td>
+      <td>{{poke.attack}}</td>
+      <td>{{poke.ability_1}}</td>
+      <td>{{poke.ability_2}}</td>
+      <td>{{poke.sprite}}</td>
+      
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
+
+
