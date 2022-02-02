@@ -7,13 +7,24 @@
 {% block content %}
     <h1>Pokemon</h1>
     <form action="{{url_for('party')}}" method="POST">
-  <div class="mb-3">
+    {{ form.hidden_tag() }}
+    <div>
+            {{form.search.label(class="form-label")}}
+            {{form.search(class="form-control")}}
+            {% for error in form.search.errors %}
+                <small style="color:red;">{{error}}</small>
+            {% endfor %}
+        </div>
+  {# <div class="mb-3">
     <label for="pokemon" class="form-label">Enter Pokemon for party</label>
     <input type="text" name="pokemon" class="form-control" id="pokemon">
-  </div>
+  </div> #}
 
   <span style="color:red;"><small>{{ error }}</small></span>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <br>
+  <div>
+        {{form.submit(class="bt btn-danger form-control")}}
+        </div>
     </form>
 
     {% if pokemon_party %}
@@ -22,7 +33,7 @@
 <div class="card" style="width: 18rem;">
   <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
   <div class="card-body">
-    <h5 class="card-title">{{poke.name}}</h5>
+    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
     <p class="card-text">
          <ul>
       
@@ -31,6 +42,7 @@
       <li>Attack: {{poke.attack}}</li>
       <li>Ability 1: {{poke.ability_1}}</li>
       <li>Ability 2: {{poke.ability_2}}</li>
+      <li>Ability 3: {{poke.ability_3}}</li>
       
       
       
