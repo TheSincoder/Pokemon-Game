@@ -1,11 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
-from .models import User
+from ...models import User
 
-class PokeSearch(FlaskForm):
-    search = StringField('Search Pokemon', validators=[DataRequired()])
-    submit = SubmitField('Find My Pokemon')
+
 
 class LoginForm(FlaskForm):
     #field name = DatatypeField('Label', validators=[LIST OF validators])
@@ -35,3 +33,13 @@ class RegisterForm(FlaskForm):
                                     #filter_by always gives a list (unless you use first())
         if same_email_user:
             raise ValidationError('Email already registered')
+
+class EditProfileForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(),Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Password', validators=[DataRequired(), 
+        EqualTo('password', message='Passwords must match')])
+    submit = SubmitField('Update')

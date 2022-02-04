@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>Pokemon</h1>
-    <form action="{{url_for('party')}}" method="POST">
+    <form action="{{url_for('main.party')}}" method="POST">
     {{ form.hidden_tag() }}
     <div>
             {{form.search.label(class="form-label")}}
