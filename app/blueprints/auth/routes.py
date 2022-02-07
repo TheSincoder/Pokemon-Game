@@ -19,6 +19,7 @@ def login():
             login_user(u)
             flash("Welcome to the PokeDevil's Colosseum", 'danger')
             return redirect(url_for('main.index')) #good login
+        
         flash('Invalid Email and/or Password', 'primary')         
         return render_template('login.html.j2', form=form,) #bad login
 

@@ -23,8 +23,8 @@ def create_app(config_class=Config):
     # register plugins
     
     # send here when not logged in if trying to access login page
-    login.login_view='login'
-    login.login_message = "Log your punk ass into the website first"
+    login.login_view='auth.login'
+    login.login_message = "Please Login to enter the PokeDevil Colosseum"
     login.login_message_category='warning'
 
 

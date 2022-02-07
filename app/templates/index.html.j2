@@ -4,8 +4,30 @@
     Main Page
 {% endblock %}
 
+{% block css%}
+    <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{# {% block css %}
+main
+{% endblock %} #}
+
 {% block content %}
-    <h1>Welcome to the Devil's Colosseum!</h1>
-    <h6>You will pick up to FIVE Pokemon to battle other contenders!</h6>
+    <h1>Welcome to the PokeDevil's Colosseum!</h1>
+    <h6>You will pick up to FOUR Pokemon to battle other contenders!</h6>
     <h6>Choose wisely! As you battle for your SOUL!</h6>
+
+    <br><br>
+    <p> By Creating an account with the PokeDevil's Colosseum website you are agreeing
+    to forfeiture of your soul upon losing. </p>
+    <p> Losing your soul means you are stuck in the game until defeating a new challenger,
+    one who has their soul in their possession. </p>
+
+    <br><br>
+    <h5> CALIFORNIA PROPOSITION 65</h5>
+    <h1> WARNING </h1>
+    <p> Losing your soul is known to the State of California to cause potential
+    eternal harm</p>
+    <p> Your Pokemon will be fine though... </p>
+
 {% endblock %}
