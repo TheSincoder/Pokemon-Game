@@ -37,106 +37,18 @@
     <br>
 <div class="contrainer">
 <div class = "row">
-<div id="card" class="card col-3 mx-auto" style="width: 18rem;">
-  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
-  <div class="card-body">
-    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
-    <p class="card-text">
-         <ul>
-      
-      <li>HP: {{poke.hp}}</li>
-      <li>Defense: {{poke.defense}}</li>
-      <li>Attack: {{poke.attack}}</li>
-      <li>Ability 1: {{poke.ability_1}}</li>
-      <li>Ability 2: {{poke.ability_2}}</li>
-      <li>Ability 3: {{poke.ability_3}}</li>
-      
-      
-      
-    </ul>
 
-    </p>
-    
-  </div>
-  
-</div>
-<div id="card" class="card col-3 mx-auto" style="width: 18rem;">
-  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
-  <div class="card-body">
-    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
-    <p class="card-text">
-         <ul>
-      
-      <li>HP: {{poke.hp}}</li>
-      <li>Defense: {{poke.defense}}</li>
-      <li>Attack: {{poke.attack}}</li>
-      <li>Ability 1: {{poke.ability_1}}</li>
-      <li>Ability 2: {{poke.ability_2}}</li>
-      <li>Ability 3: {{poke.ability_3}}</li>
-      
-      
-      
-    </ul>
 
-    </p>
-    
-  </div>
-  
-</div>
+{% include './includes/card.html.j2'%}
 
-<div id="card" class="card col-3 mx-auto" style="width: 18rem;">
-  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
-  <div class="card-body">
-    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
-    <p class="card-text">
-         <ul>
-      
-      <li>HP: {{poke.hp}}</li>
-      <li>Defense: {{poke.defense}}</li>
-      <li>Attack: {{poke.attack}}</li>
-      <li>Ability 1: {{poke.ability_1}}</li>
-      <li>Ability 2: {{poke.ability_2}}</li>
-      <li>Ability 3: {{poke.ability_3}}</li>
-      
-      
-      
-    </ul>
 
-    </p>
-    
-  </div>
-  
-</div>
 
-<div id="card" class="card col-3 mx-auto" style="width: 18rem;">
-  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
-  <div class="card-body">
-    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
-    <p class="card-text">
-         <ul>
-      
-      <li>HP: {{poke.hp}}</li>
-      <li>Defense: {{poke.defense}}</li>
-      <li>Attack: {{poke.attack}}</li>
-      <li>Ability 1: {{poke.ability_1}}</li>
-      <li>Ability 2: {{poke.ability_2}}</li>
-      <li>Ability 3: {{poke.ability_3}}</li>
-      
-      
-      
-    </ul>
-
-    </p>
-    
-  </div>
-  
-</div>
 {# end div for grid and rows  #}
 </div></div>
 
 
 <br>
-{{form.select(class="bt btn-danger form-control")}}
+{# {{form.confirm(class="bt btn-danger form-control")}} #}
 
 {% endfor %}
 
