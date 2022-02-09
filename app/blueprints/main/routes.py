@@ -39,13 +39,24 @@ def party():
             # new_user_pokemon = PokeParty()
             # new_user_pokemon.from_dict(poke_dict)
             # new_user_pokemon.save()
-
+            # poke = PokeParty.query.filter(PokeParty.name==search).first()
             if not PokeParty.exists(poke_dict["name"]):
-                poke = PokeParty()
-                poke.from_dict(poke_dict)
-                poke.save()
+                new_poke = PokeParty()
+                new_poke.from_dict(poke_dict)
+                new_poke.save()
         
-            # current_user.add_to_team(poke_dict['name'])
+
+            user = current_user
+            user.add_to_team(PokeParty.exists(poke_dict['name']))
+
+            
+            # if list(user.team) != []:
+            #     flash(user.team)
+            # else:
+            #     user.team.append(poke)
+            #     user.save()
+
+            
 
             return render_template('party.html.j2', form=form, pokemon_party = user_pokemon)
         else:

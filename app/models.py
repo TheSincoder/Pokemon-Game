@@ -48,6 +48,12 @@ class User(UserMixin, db.Model):
     def add_to_team(self, Obj):
         if len(list(self.team)) <= 5:
             self.team.append(Obj)
+            self.save()
+
+    def remove_from_team(self, Obj):
+        if len(list(self.team)) > 0:
+            self.team.remove(Obj)
+            self.save()
 
 
     def from_dict(self, data):
