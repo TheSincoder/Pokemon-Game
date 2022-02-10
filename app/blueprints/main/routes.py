@@ -1,7 +1,7 @@
 from .import bp as main #this makes it easier to know what's going on
 from .forms import PokeSearch
-from app.models import PokeParty, User
-from flask import render_template, request, flash
+from app.models import PokeParty, PokeUserJoin
+from flask import render_template, request, flash, redirect, url_for
 import requests
 from flask_login import  login_required, current_user
 
@@ -65,4 +65,25 @@ def party():
     return render_template('party.html.j2', form=form)
 
 
+@main.route('/view_team', methods=['GET'])
+@login_required
+def view_team():
+    # access the joint table
+    # take that pokemon id and grab the info on the PokeParty table
+    # display each pokemon on the page
 
+    team = current_user.team
+    return render_template('view_team.html.j2', team = team)
+
+@main.route('/remove/<int:id>')
+@login_required
+def remove(id):
+    # make id = the specific pokemon i'm clicking on
+    poke = PokeUserJoin.query.get((id, current_user.id))
+    poke.remove()
+    flash(f'You have removed pokemon from your Team', 'warning')
+    return redirect(url_for('main.view_team'))
+
+
+    # user = current_user
+    #     user.remove_from_team(PokeParty.exists(poke_dict['name']))

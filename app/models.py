@@ -10,7 +10,9 @@ class PokeUserJoin(db.Model):
     pokeparty_id = db.Column(db.Integer, db.ForeignKey('pokeparty.id'), primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
 
-
+    def remove(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
@@ -46,14 +48,11 @@ class User(UserMixin, db.Model):
     
 
     def add_to_team(self, Obj):
-        if len(list(self.team)) <= 5:
+        if len(list(self.team)) < 5:
             self.team.append(Obj)
             self.save()
 
-    def remove_from_team(self, Obj):
-        if len(list(self.team)) > 0:
-            self.team.remove(Obj)
-            self.save()
+    
 
 
     def from_dict(self, data):
