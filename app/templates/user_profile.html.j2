@@ -10,14 +10,11 @@
 
     <br>
        <ul>
-      
-      <li>Battles Won: </li>
-      <li>Battles Played: </li>
-      <li>Favorite Pokemon: </li>
-      
-      
-      
-      
+        <li>Battles Played: {{current_user.battles}} </li>                    
+        <li>Battles Won: {{current_user.wins}} </li>
+        <li>Battles Lost: {{current_user.losses}} </li>
+        <li>Battles Tied: {{current_user.battles - current_user.wins - current_user.losses}} </li>
+                                               
     </ul>
   
 

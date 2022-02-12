@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2ad7605c7d83
-Revises: 47c76353265b
-Create Date: 2022-02-08 20:33:58.897744
+Revision ID: 071b4b899b72
+Revises: 
+Create Date: 2022-02-10 22:16:28.003723
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2ad7605c7d83'
-down_revision = '47c76353265b'
+revision = '071b4b899b72'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -21,9 +21,9 @@ def upgrade():
     op.create_table('pokeparty',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=True),
-    sa.Column('hp', sa.String(length=50), nullable=True),
-    sa.Column('defense', sa.String(length=50), nullable=True),
-    sa.Column('attack', sa.String(length=50), nullable=True),
+    sa.Column('hp', sa.Integer(), nullable=True),
+    sa.Column('defense', sa.Integer(), nullable=True),
+    sa.Column('attack', sa.Integer(), nullable=True),
     sa.Column('ability_1', sa.String(length=50), nullable=True),
     sa.Column('ability_2', sa.String(length=50), nullable=True),
     sa.Column('ability_3', sa.String(length=50), nullable=True),
@@ -39,6 +39,8 @@ def upgrade():
     sa.Column('email', sa.String(length=150), nullable=True),
     sa.Column('password', sa.String(length=200), nullable=True),
     sa.Column('created_on', sa.DateTime(), nullable=True),
+    sa.Column('wins', sa.Integer(), nullable=True),
+    sa.Column('losses', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )

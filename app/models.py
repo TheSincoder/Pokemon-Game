@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
+
 class PokeUserJoin(db.Model):
     pokeparty_id = db.Column(db.Integer, db.ForeignKey('pokeparty.id'), primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
@@ -23,6 +24,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(200))
     created_on = db.Column(db.DateTime, default = dt.utcnow)
+    wins = db.Column(db.Integer, default = 0)
+    losses = db.Column(db.Integer, default = 0)
+    battles = db.Column(db.Integer, default = 0 )
     team = db.relationship(
         'PokeParty',
         secondary = 'poke_user_join',
@@ -47,6 +51,31 @@ class User(UserMixin, db.Model):
 
     
 
+    def total_attack(self):
+        total = []
+        for pokemon in self.team:
+            total.append(int(pokemon.attack))
+            attack_total = sum(total)
+            return str(attack_total)
+
+    def battle_count(self,user):
+        self.battles = "+"
+        db.session.commit()       
+
+    # def battle(self, obj):
+        
+    #     if self.sum_stat() > obj.sum_stat():
+    #         self.wins += 1
+    #         flash(f'{self.username} has won!', 'danger')
+    #     elif self.sum_stat() < obj.sum_stat():
+    #         self.losses += 1
+    #         flash(f'{self.username} has lost!', 'dark')
+    #     else:
+    #         flash("it's a Tie!", 'warning')
+    #     self.save()
+
+
+
     def add_to_team(self, Obj):
         if len(list(self.team)) < 5:
             self.team.append(Obj)
@@ -61,6 +90,8 @@ class User(UserMixin, db.Model):
         self.last_name = data['last_name']
         self.email = data['email']
         self.password = self.hash_password(data['password'])
+        self.wins = 0
+        self.losses = 0
 
     # saves the user to the database
     def save(self):
@@ -79,9 +110,9 @@ class PokeParty(db.Model):
     __tablename__ = 'pokeparty'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
-    hp = db.Column(db.String(50))
-    defense = db.Column(db.String(50))
-    attack = db.Column(db.String(50))
+    hp = db.Column(db.Integer)
+    defense = db.Column(db.Integer)
+    attack = db.Column(db.Integer)
     ability_1 = db.Column(db.String(50))
     ability_2 = db.Column(db.String(50))
     ability_3 = db.Column(db.String(50))

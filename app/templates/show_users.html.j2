@@ -1,0 +1,67 @@
+{% extends 'base.html.j2'%}
+{% block title %}
+ Colosseum Challengers
+{% endblock %}
+{% block css%}
+    <link href="{{url_for('static',filename='css/show_users.css')}}" rel="stylesheet">
+    {% endblock%}
+    
+{% block content %}
+    
+    <br>
+    <div id="header" style="width: 100%">
+    <h1>Choose Your Opponent</h1>
+    </div>
+    <hr>
+    <br>
+
+    {% endblock %}
+          {% block content_2 %}
+
+
+<div id="box_container" class="d-flex flex-row">
+    {% for user in users %}
+    
+    
+    <div id="box" class="d-flex flex-row col-3 mx-2" >
+        <div id="user-card" class="card col-3 mx-auto" style="width: 18rem;" >
+            <div id="card" class="row g-0">
+                <div class="col-md-4">
+                    
+                {% for poke in user.team%}
+                <div class="row">
+                    <div class="col-8">
+                 <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
+                    </div>
+                </div>
+                 {% endfor %}
+                </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{user.username}}</h5>
+                <p class="card-text">
+                <br>
+                    <h5>Statistics</h5>
+                    <ul>
+                         
+                        <li>Battles Played: {{user.battles}} </li>                    
+                        <li>Battles Won: {{user.wins}} </li>
+                        <li>Battles Lost: {{user.losses}} </li>
+                        <li>Battles Tied: {{user.battles - user.wins - user.losses}} </li>
+                                               
+                    </ul>
+                </p>
+                
+            <button id="button" type="button" class="card-button" onclick="location.href='{{url_for('social.battle', id=user.id)}}'">
+                Battle!
+            </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    {% endfor %}
+    </div>
+{% endblock %}

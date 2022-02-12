@@ -87,3 +87,14 @@ def remove(id):
 
     # user = current_user
     #     user.remove_from_team(PokeParty.exists(poke_dict['name']))
+
+# @main.route('/show_users')
+# @login_required
+# def show_users():
+#     pass
+
+# @main.route('/battle')
+# @login_required
+# def battle():
+#     pass
+

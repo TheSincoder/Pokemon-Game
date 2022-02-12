@@ -1,0 +1,43 @@
+#card {
+    background-color: black;
+    border-color: darkred;
+    border-width: 2px;
+    color: darkred;
+ 
+}
+
+#box{
+    border-color: darkred;
+    border-width: 2px;
+    color: darkred;
+}
+
+h1{
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+#box_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    
+}
+
+#box{
+    margin: 5px;
+    display: inline-block;
+    
+    
+}
+
+#button{
+    background-color: darkred;
+    width: 100%;
+}

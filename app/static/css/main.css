@@ -1,3 +1,5 @@
 body, html{
-    background-color: #7a7a7a
+    height: 100%;
+    background-image: linear-gradient(black, darkred);
+    color: rgb(255, 0, 0)
 }

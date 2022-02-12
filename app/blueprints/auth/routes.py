@@ -52,7 +52,7 @@ def register():
             #save user to the database
             new_user_object.save()
         except:
-            flash('There was an enexpected Error creating your Account. Please Try Again', 'primary')
+            flash('There was an unexpected Error creating your Account. Please Try Again', 'primary')
             #Error Return
             return render_template('register.html.j2', form=form)
         # If it worked

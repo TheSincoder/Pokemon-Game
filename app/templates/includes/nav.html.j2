@@ -15,10 +15,16 @@
                 <a class="nav-link" aria-current="page" href="{{url_for('main.index')}}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('main.party')}}">Pokemon Party</a>
+                <a class="nav-link" href="{{url_for('main.party')}}">Catch Pokemon</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('main.view_team')}}">My Team</a>
+              </li>
+              {# <li class="nav-item">
+                <a class="nav-link" href="{{url_for('main.battle')}}">Battle</a>
+              </li> #}
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('social.show_users')}}">Choose Opponent</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
