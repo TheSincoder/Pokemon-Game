@@ -13,8 +13,9 @@ main
 {% endblock %} #}
 
 {% block content %}
+<br>
     <h1>Welcome to the PokeDevil's Colosseum!</h1>
-    <h6>You will pick up to FOUR Pokemon to battle other contenders!</h6>
+    <h6>You will pick up to FIVE Pokemon to battle other contenders!</h6>
     <h6>Choose wisely! As you battle for your SOUL!</h6>
 
     <br><br>
@@ -29,5 +30,8 @@ main
     <p> Losing your soul is known to the State of California to cause potential
     eternal harm</p>
     <p> Your Pokemon will be fine though... </p>
+
+    <img  href="{{ url_for('static', filename='images/black_pika.png')}}">
+     <img src="{{ url_for('static', filename='images/pokeball.png')}}" class="home-img" alt="home image" style="width: 25%">
 
 {% endblock %}

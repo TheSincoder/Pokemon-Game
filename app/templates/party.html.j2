@@ -9,6 +9,7 @@
     {% endblock%}
 
 {% block content %}
+<br>
     <h1>Pokemon</h1>
     <form action="{{url_for('main.party')}}" method="POST">
     {{ form.hidden_tag() }}
@@ -53,7 +54,11 @@
 {% endfor %}
 
 
+
 {% endif %}
+
+
+
 {% endblock %}
 
 
