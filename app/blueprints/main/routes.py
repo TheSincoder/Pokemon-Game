@@ -21,7 +21,7 @@ def party():
         
         search = request.form.get('search')
         
-        url = f"https://pokeapi.co/api/v2/pokemon/{search}"
+        url = f"https://pokeapi.co/api/v2/pokemon/{search.lower()}"
         response = requests.get(url)
         if response.ok:
             user_pokemon = []               
